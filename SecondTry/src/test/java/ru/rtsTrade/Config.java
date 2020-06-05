@@ -7,6 +7,7 @@ import  java.util.Properties;
 public class Config {
 
     private String startDate,finishDate;
+    private double USD, EUR;
 
     public  Config() {
 
@@ -19,6 +20,10 @@ public class Config {
 
              startDate = property.getProperty("start_date");
              finishDate = property.getProperty("finish_date");
+
+             USD = Double.parseDouble(property.getProperty("USD"));
+             EUR = Double.parseDouble(property.getProperty("EUR"));
+
         } catch (IOException e) {
             System.err.println("ОШИБКА: Файл свойств отсуствует!");
         }
@@ -31,6 +36,14 @@ public class Config {
 
     public String getFinishDate() {
         return finishDate;
+    }
+
+    public double getEUR() {
+        return EUR;
+    }
+
+    public double getUSD() {
+        return USD;
     }
 
     public void update()    {
